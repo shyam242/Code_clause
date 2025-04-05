@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url(https://sl.bing.net/da0ibqcG0OG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.main-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.size {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+span {
+  font-size: 14px;
+  color: #333;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.details {
+  border: 1px solid #ccc;
+  padding: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-top: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.moral {
+  color: rgb(0, 150, 250);
+  font-weight: bold;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.like-icon {
+  width: 24px;
+  height: 24px;
+  fill: gray;
+  transition: fill 0.3s ease;
+}
+
+.like-icon.liked {
+  fill: red;
+}
+
+.container {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #00000033;
+}
+
+.head h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.text p {
+  font-size: 14px;
+  color: #555;
+}
+
+.commentbox {
+  display: flex;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.commentbox img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.commentbox .content {
+  flex: 1;
+}
+
+.user {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.commentinput input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid blue;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons button {
+  padding: 8px 16px;
+  background: lightgray;
+  color: #555;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttons button.abled {
+  background: blue;
+  color: white;
+}
+
+.policy {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.policy a {
+  color: blue;
+  text-decoration: none;
+}
