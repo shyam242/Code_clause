@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #1e1e2e;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(4, 120px);
+            gap: 15px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        .card {
+            width: 120px;
+            height: 120px;
+            background-color: #4a4e69;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: transparent;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .card:hover {
+            background-color: #6c757d;
+        }
+        .card.flipped {
+            color: white;
+            background-color: #ff6b6b;
+            transform: rotateY(180deg);
+        }
+        .timer-container {
+            position: relative;
+            width: 80%;
+            max-width: 400px;
+            height: 10px;
+            background: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px auto;
+        }
+        .timer-bar {
+            height: 100%;
+            background: #ff6b6b;
+            width: 100%;
+            transition: width 1s linear;
+        }
+        .win-message {
+            display: none;
+            font-size: 24px;
+            color: #03e9f4;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #d64040;
+        }
+    </style>
+</head>
+<body>
+    <h1>Memory Game</h1>
+    <p>Score: <span id="score">0</span></p>
+    <div class="timer-container">
+        <div class="timer-bar" id="timerBar"></div>
+    </div>
+    <button onclick="resetGame()">Reset</button>
+    <div class="game-container" id="gameBoard"></div>
+    <p id="win" class="win-message">🎉 Congratulations! You won! 🎉</p>
+    
+    <script>
+        const icons = ['🍎', '🍌', '🍇', '🍉', '🍎', '🍌', '🍇', '🍉','🍏', '🍏' ,'🍋‍🟩','🥥','🥝','🍋‍🟩','🥥','🥝'];
+        let shuffledIcons = icons.sort(() => Math.random() - 0.5);
+        let firstCard = null, secondCard = null;
+        let score = 0;
+        let timeLeft = 60;
+        let timerInterval;
+        const maxScore = icons.length / 2;
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 150;
+            document.getElementById('timerBar').style.width = '100%';
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timerBar').style.width = (timeLeft / 150) * 100 + '%';
+                if (timeLeft === 0) {
+                    clearInterval(timerInterval);
+                    alert("Time's up! Game Over.");
+                    resetGame();
+                }
+            }, 1000);
+        }
+        
+        function createBoard() {
+            document.getElementById('win').style.display = 'none';
+            const board = document.getElementById('gameBoard');
+            board.innerHTML = '';
+            shuffledIcons.forEach((icon, index) => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.icon = icon;
+                card.dataset.index = index;
+                card.onclick = flipCard;
+                board.appendChild(card);
+            });
+            startTimer();
+        }
+        
+        function flipCard() {
+            if (this.classList.contains('flipped')) return;
+            
+            this.textContent = this.dataset.icon;
+            this.classList.add('flipped');
+            
+            if (!firstCard) {
+                firstCard = this;
+            } else if (!secondCard) {
+                secondCard = this;
+                checkMatch();
+            }
+        }
+        
+        function checkMatch() {
+            if (firstCard.dataset.icon === secondCard.dataset.icon) {
+                score++;
+                document.getElementById('score').textContent = score;
+                firstCard = secondCard = null;
+                if (score === maxScore) {
+                    clearInterval(timerInterval);
+                    document.getElementById('win').style.display = 'block';
+                }
+            } else {
+                setTimeout(() => {
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    firstCard.textContent = '';
+                    secondCard.textContent = '';
+                    firstCard = secondCard = null;
+                }, 1000);
+            }
+        }
+        
+        function resetGame() {
+            score = 0;
+            document.getElementById('score').textContent = score;
+            shuffledIcons = icons.sort(() => Math.random() - 0.5);
+            firstCard = secondCard = null;
+            createBoard();
+        }
+        
+        createBoard();
+    </script>
+</body>
+</html>
