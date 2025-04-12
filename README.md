@@ -6,7 +6,7 @@ Welcome to my personal repository showcasing the projects I developed during my 
 
 ## 🚀 Projects
 
-### 📖 [Blog Website]((https://github.com/shyam242/Code_clause/tree/main/Blog_website))
+### 📖 [Blog Website](https://github.com/shyam242/Code_clause/tree/main/Blog_website)
 A dynamic and responsive platform where users can:
 - Read a variety of blogs
 - Like posts they enjoy
@@ -16,7 +16,7 @@ This project emphasizes user interaction and a clean UI/UX design.
 
 ---
 
-### 🧠 [Memory Game](./Memory-game)
+### 🧠 [Memory Game](https://github.com/shyam242/Code_clause/tree/main/memory_game)
 An engaging memory card-matching game built with JavaScript. Features include:
 - Interactive card flipping logic
 - Countdown timer
@@ -26,7 +26,7 @@ A fun project that challenged my logic and DOM manipulation skills.
 
 ---
 
-### 🎥 [Video Streaming App](./Video-streaming-App)
+### 🎥 [Video Streaming App](https://github.com/shyam242/Code_clause/Video_streaming_app)
 A full-stack video streaming platform that allows users to:
 - Upload and stream videos
 - Toggle between public and private video visibility
