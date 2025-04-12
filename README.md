@@ -26,7 +26,7 @@ A fun project that challenged my logic and DOM manipulation skills.
 
 ---
 
-### 🎥 [Video Streaming App](https://github.com/shyam242/Code_clause/Video_streaming_app)
+### 🎥 [Video Streaming App](https://github.com/shyam242/Code_clause/tree/main/Video_streaming_app)
 A full-stack video streaming platform that allows users to:
 - Upload and stream videos
 - Toggle between public and private video visibility
