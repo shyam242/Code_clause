@@ -6,7 +6,7 @@ Welcome to my personal repository showcasing the projects I developed during my 
 
 ## 🚀 Projects
 
-### 📖 [Blog Website](./Blog-website)
+### 📖 [Blog Website]((https://github.com/shyam242/Code_clause/tree/main/Blog_website))
 A dynamic and responsive platform where users can:
 - Read a variety of blogs
 - Like posts they enjoy
